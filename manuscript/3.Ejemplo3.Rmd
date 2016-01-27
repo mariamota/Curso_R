@@ -1,11 +1,11 @@
-#Ejemplo 3
-
-Función de distribución normal acumulativa
+#Creando las pruebas en branches
 
 ```{r}
-<<<<<<< HEAD
-pnm310,527,105)
-=======
-pnor310,527,105)
->>>>>>> nuevo
+opts_chunk$set(fig.path = "images/") # corrected path and added dev
 ```
+Creando gŕafica de 5 a 100.
+```{r}
+plot(5:100)
+```
+
+prueba
