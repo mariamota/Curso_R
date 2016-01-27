@@ -32,8 +32,8 @@ after_script:
   - eval "$(ssh-agent -s)"
   - ssh-add .ssh/id_rsa
   - ssh -T git@github.com
-  - git config --global user.email "arturoinosencio@gmail.com"
-  - git config --global user.name "Wowip"
+  - git config --global user.email "juanis315@hotmail.com"
+  - git config --global user.name "mariamota"
   - git status
   - git pull origin master
   - git status
