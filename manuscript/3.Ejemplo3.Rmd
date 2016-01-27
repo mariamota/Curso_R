@@ -1,0 +1,11 @@
+#Ejemplo 3
+
+Función de distribución normal acumulativa
+
+```{r}
+<<<<<<< HEAD
+pnm310,527,105)
+=======
+pnor310,527,105)
+>>>>>>> nuevo
+```
