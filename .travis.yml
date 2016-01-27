@@ -1,0 +1,55 @@
+language: r
+sudo: required
+
+branches:
+  only:
+  - nuevo
+  
+install:
+  - sudo Rscript -e "install.packages('knitr', repos = c('http://yihui.name/xran', 'http://cran.rstudio.org'), type = 'source')"
+  
+  
+script:
+  - sudo sh script.sh
+
+after_script:
+  - ls
+  - cd manuscript
+  - ls
+  - ls -l *.md | sort -g | awk '{print $9}'
+  - ls *.md | sort -g > Book.txt
+  - cd ..
+  - ls
+  - git init
+  - git remote -v
+  - git remote rm origin
+  - git remote add origin git@github.com:Wowip/R_Knitr.git
+  - git remote -v
+  - sudo chmod 600 .ssh/id_rsa
+  - sudo chmod 600 .ssh/id_rsa.pub
+  - ls -a
+  - ls -al .ssh
+  - eval "$(ssh-agent -s)"
+  - ssh-add .ssh/id_rsa
+  - ssh -T git@github.com
+  - git config --global user.email "arturoinosencio@gmail.com"
+  - git config --global user.name "Wowip"
+  - git status
+  - git pull origin master
+  - git status
+  - git checkout nuevo
+  - git status
+  - git add .
+  - git commit -m "commit 1"
+  - git status
+  - git checkout master
+  - git status
+  - git checkout --theirs -- manuscript/images/*.png 
+  - git status
+  - git pull 
+  - git status
+  - git merge nuevo
+  - git status
+  - git add .
+  - git commit -m "en master"
+  - git push origin master
